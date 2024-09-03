@@ -1,16 +1,18 @@
-import Product from '@/components/Product'
-import React from 'react'
-
-const imagesUrl = [
-  "https://thumbs.dreamstime.com/b/duck-visits-hong-kong-de-goma-gigante-30976293.jpg",
-]
+import Products from '@/components/Products'
+import Reviews from '@/components/Reviews'
+import React, { Suspense } from 'react'
 
 const page = () => {
   return (
     <div>
       <h1 className="h1 text-gray-300">Product detial page</h1>
-      <Product productName="Duck" productDescription="a little duck that you can play with"
-        productImageUrl={imagesUrl[0]}/>
+      <Suspense fallback={<h1 className="h1 text-gray-300">loading create Product ...</h1>}>
+        <Products/>
+      </Suspense>
+
+      <Suspense fallback={<h1 className="h1 text-gray-300">loading create Review ...</h1>}>
+        <Reviews/>
+      </Suspense>
     </div>
   )
 }
